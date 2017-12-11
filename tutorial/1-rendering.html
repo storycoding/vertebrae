@@ -26,7 +26,7 @@ var renderSomethingOnThePage = function(message) {
    * with indents to make it easier to read.
    */
   var html = [
-    '<div>',
+    '<div class="coolDiv">',
       '<span>',
         message,
       '</span>',
@@ -101,7 +101,11 @@ var Message = Backbone.Model.extend({
      * Putting it into the initialize function let's us be sure that
      * all models that are created will have event listeners on them.
      */
-    this.on(YOUR CODE HERE);
+    this.on('change', function(){
+
+      renderSomethingOnThePage(this.get('message')); // not sure if it's working! <---------------
+
+    });
     /* It is your turn to write the event handler.
      *
      * Make an event listener that will listen for a `change` in this model's
